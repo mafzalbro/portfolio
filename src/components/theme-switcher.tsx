@@ -60,42 +60,21 @@ function hexToHsl(hex: string): [number, number, number] {
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
-  const [primaryColor, setPrimaryColor] = React.useState({ h: 217, s: 91, l: 60 });
-  const [colorPickerValue, setColorPickerValue] = React.useState("#4f86f7");
+  const [primaryColor, setPrimaryColor] = React.useState({ h: 220, s: 85, l: 60 });
+  const [colorPickerValue, setColorPickerValue] = React.useState("#4a7ee6");
 
   React.useEffect(() => {
-    const root = document.querySelector(':root') as HTMLElement;
+    const root = document.documentElement;
     if (!root) return;
 
     const { h, s, l } = primaryColor;
     
-    root.style.setProperty('--primary', `${h} ${s}% ${l}%`);
-    root.style.setProperty('--primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
-    root.style.setProperty('--chart-1', `${h} ${s}% ${l}%`);
-    root.style.setProperty('--sidebar-primary', `${h} ${s}% ${l}%`);
-    root.style.setProperty('--sidebar-primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
-    root.style.setProperty('--ring', `${h} ${s}% ${l}%`);
-    root.style.setProperty('--sidebar-ring', `${h} ${s}% ${l}%`);
-
-    const isDark = theme?.includes('dark');
-    if(isDark) {
-      root.style.setProperty('--secondary', `hsl(${h}, 30%, 17.5%)`);
-      root.style.setProperty('--secondary-foreground', `hsl(${h}, 5%, 98%)`);
-      root.style.setProperty('--accent', `hsl(${h}, 30%, 17.5%)`);
-      root.style.setProperty('--accent-foreground', `hsl(${h}, 5%, 98%)`);
-      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.2)`);
-      root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
-    } else {
-      root.style.setProperty('--secondary', `hsl(${h}, 40%, 96.1%)`);
-      root.style.setProperty('--secondary-foreground', `hsl(${h}, 30%, 11.2%)`);
-      root.style.setProperty('--accent', `hsl(${h}, 40%, 96.1%)`);
-      root.style.setProperty('--accent-foreground', `hsl(${h}, 30%, 11.2%)`);
-      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.1)`);
-      root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
-    }
-
+    root.style.setProperty('--primary-hue', h.toString());
+    root.style.setProperty('--primary-saturation', `${s}%`);
+    root.style.setProperty('--primary-lightness', `${l}%`);
+    
     setColorPickerValue(hslToHex(h, s, l));
-  }, [primaryColor, theme]);
+  }, [primaryColor]);
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const hex = event.target.value;
