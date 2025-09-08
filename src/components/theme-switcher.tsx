@@ -60,13 +60,19 @@ function hexToHsl(hex: string): [number, number, number] {
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
-  const [primaryColor, setPrimaryColor] = React.useState("217.2 91.2% 59.8%");
+  const [primaryColor, setPrimaryColor] = React.useState({ h: 217.2, s: 91.2, l: 59.8 });
   const [colorPickerValue, setColorPickerValue] = React.useState("#3b82f6");
 
   React.useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty('--primary', primaryColor);
-    const [h, s, l] = primaryColor.split(" ").map(parseFloat);
+    const root = document.documentElement.style;
+    const { h, s, l } = primaryColor;
+    root.setProperty('--primary', `${h} ${s}% ${l}%`);
+    root.setProperty('--primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
+    root.setProperty('--chart-1', `${h} ${s}% ${l}%`);
+    root.setProperty('--sidebar-primary', `${h} ${s}% ${l}%`);
+    root.setProperty('--sidebar-primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
+    root.setProperty('--ring', `${h} ${s}% ${l}%`);
+
     setColorPickerValue(hslToHex(h, s, l));
   }, [primaryColor]);
 
@@ -74,7 +80,7 @@ export function ThemeSwitcher() {
     const hex = event.target.value;
     setColorPickerValue(hex);
     const [h, s, l] = hexToHsl(hex);
-    setPrimaryColor(`${h} ${s}% ${l}%`);
+    setPrimaryColor({ h, s, l });
   }
   
   const isDarkMode = theme?.includes("dark");
