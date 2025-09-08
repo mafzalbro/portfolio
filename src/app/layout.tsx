@@ -26,7 +26,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="theme-blue-dark"
+          enableSystem={false}
+          themes={['theme-blue-light', 'theme-blue-dark', 'theme-amber-light', 'theme-amber-dark']}
+        >
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
