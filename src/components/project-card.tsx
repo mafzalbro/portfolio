@@ -22,43 +22,38 @@ type Project = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div style={{ perspective: "1000px" }}>
-      <Card
-        className="group h-full flex flex-col overflow-hidden bg-card/80 backdrop-blur-sm transition-all duration-300 ease-out hover:shadow-2xl hover:shadow-primary/20"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        <div className="relative overflow-hidden transition-transform duration-500" style={{ transform: "translateZ(20px)" }}>
-          <Image
-            src={project.imageUrl}
-            alt={project.title}
-            width={600}
-            height={400}
-            data-ai-hint={project.imageHint}
-            className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+    <Card className="group h-full flex flex-col overflow-hidden bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+      <div className="relative overflow-hidden">
+        <Image
+          src={project.imageUrl}
+          alt={project.title}
+          width={600}
+          height={400}
+          data-ai-hint={project.imageHint}
+          className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/30 transition-all"></div>
+      </div>
+      <CardHeader>
+        <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
+        <CardDescription>{project.description}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="secondary">
+              {tech}
+            </Badge>
+          ))}
         </div>
-        <CardHeader>
-          <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
-          <CardDescription>{project.description}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex-grow">
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <Badge key={tech} variant="secondary">
-                {tech}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button asChild variant="ghost" className="w-full">
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              View Project <ArrowUpRight className="ml-2" />
-            </a>
-          </Button>
-        </CardFooter>
-      </Card>
-    </div>
+      </CardContent>
+      <CardFooter>
+        <Button asChild variant="ghost" className="w-full">
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            View Project <ArrowUpRight className="ml-2" />
+          </a>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }

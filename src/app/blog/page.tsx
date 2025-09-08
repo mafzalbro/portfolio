@@ -11,11 +11,11 @@ export default function BlogPage() {
         title="My Blog"
         description="Thoughts and articles on web development, freelance life, and the latest technologies in the industry."
       />
-       <div className="grid md:grid-cols-2 gap-6">
+       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs.map((post, index) => (
-          <Card key={index} className="flex flex-col bg-card/80 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+          <Card key={index} className="flex flex-col bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
             <CardHeader>
-              <CardTitle className="font-headline">{post.title}</CardTitle>
+              <CardTitle className="font-headline text-xl">{post.title}</CardTitle>
               <CardDescription>{post.description}</CardDescription>
             </CardHeader>
             <CardFooter className="mt-auto">

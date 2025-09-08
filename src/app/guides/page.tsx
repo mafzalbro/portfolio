@@ -11,11 +11,11 @@ export default function GuidesPage() {
         title="Developer Guides"
         description="A collection of guides and tutorials to help you master the MERN stack and other modern web technologies."
       />
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {guides.map((guide, index) => (
-          <Card key={index} className="flex flex-col bg-card/80 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+          <Card key={index} className="flex flex-col bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
             <CardHeader>
-              <CardTitle className="font-headline">{guide.title}</CardTitle>
+              <CardTitle className="font-headline text-xl">{guide.title}</CardTitle>
               <CardDescription>{guide.description}</CardDescription>
             </CardHeader>
             <CardFooter className="mt-auto">

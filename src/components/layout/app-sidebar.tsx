@@ -17,10 +17,10 @@ import { Button } from "../ui/button";
 function AppLogo() {
   return (
     <Link href="/" className="flex items-center gap-2.5 px-2">
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-        <span className="font-headline text-xl font-bold text-primary-foreground">A</span>
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+        <span className="font-headline text-2xl font-bold">A</span>
       </div>
-      <span className="font-headline text-lg font-bold text-foreground">
+      <span className="font-headline text-xl font-bold text-foreground">
         Afzal.MERN
       </span>
     </Link>
@@ -38,6 +38,8 @@ function NavMenu() {
             asChild
             isActive={pathname === link.href}
             tooltip={link.name}
+            className="text-base"
+            size="lg"
           >
             <Link href={link.href}>
               <link.icon />
@@ -53,8 +55,8 @@ function NavMenu() {
 function Socials() {
   return (
     <div className="flex flex-col gap-2">
-      <div className="group-data-[collapsible=icon]:hidden px-2 text-xs font-medium text-sidebar-foreground/70">
-        Socials
+      <div className="group-data-[collapsible=icon]:hidden px-2 text-sm font-medium text-sidebar-foreground/70">
+        Connect
       </div>
       <div className="flex items-center justify-around group-data-[collapsible=icon]:flex-col group-data-[collapsible=icon]:gap-2">
         {socialLinks.map((link) => (
@@ -62,16 +64,16 @@ function Socials() {
             key={link.name}
             variant="ghost"
             size="icon"
-            className="h-8 w-8"
+            className="h-9 w-9"
             asChild
           >
             <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-              <link.icon className="size-4" />
+              <link.icon className="size-5" />
             </a>
           </Button>
         ))}
       </div>
-      <Button variant="outline" asChild className="mt-2">
+      <Button variant="outline" asChild className="mt-2 h-9 border-sidebar-border hover:bg-primary/10 hover:border-primary">
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
           Follow
         </a>

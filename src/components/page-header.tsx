@@ -1,10 +1,10 @@
 export function PageHeader({ title, description }: { title: string; description?: string }) {
   return (
-    <div className="mb-8 md:mb-12">
-      <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary">
+    <div className="mb-10 md:mb-14 text-center">
+      <h1 className="font-headline text-5xl md:text-6xl font-bold tracking-tighter text-primary">
         {title}
       </h1>
-      {description && <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{description}</p>}
+      {description && <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">{description}</p>}
     </div>
   );
 }

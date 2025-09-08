@@ -13,7 +13,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Inter', ...fontFamily.sans],
-        headline: ['Syne', ...fontFamily.sans],
+        headline: ['Roboto Condensed', ...fontFamily.sans],
         code: ['monospace'],
       },
       colors: {
