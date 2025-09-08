@@ -56,12 +56,12 @@ export default function Home() {
         <h2 className="font-headline text-3xl font-bold text-center mb-8">My Services</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="bg-card/80 backdrop-blur-sm transform-style-3d transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+            <Card key={index} className="flex flex-col bg-card/80 backdrop-blur-sm transform-style-3d transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="items-center">
                 {service.icon}
                 <CardTitle className="font-headline mt-4">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-center text-muted-foreground">
+              <CardContent className="text-center text-muted-foreground flex-grow">
                 <p>{service.description}</p>
               </CardContent>
             </Card>
