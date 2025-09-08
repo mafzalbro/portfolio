@@ -1,7 +1,6 @@
 import { ArrowRight, Code, Server, Blend } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import AiAlertGenerator from "@/components/ai-alert-generator";
 import { technologies } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 
@@ -81,11 +80,6 @@ export default function Home() {
             </div>
           </CardContent>
         </Card>
-      </section>
-
-      <section>
-        <h2 className="font-headline text-3xl font-bold text-center mb-8">New AI Tech Alerts</h2>
-        <AiAlertGenerator />
       </section>
     </div>
   );
