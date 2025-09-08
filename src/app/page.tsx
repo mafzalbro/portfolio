@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { technologies } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function Home() {
   const services = [
@@ -25,27 +26,39 @@ export default function Home() {
 
   return (
     <div className="space-y-24">
-      <section className="text-center">
-        <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter">
-          Muhammad Afzal
-        </h1>
-        <p className="mt-4 text-2xl md:text-3xl text-muted-foreground font-light">
-          MERN Stack Developer
-        </p>
-        <p className="mt-8 max-w-3xl mx-auto text-lg text-foreground/80">
-          A passionate full-stack developer with 2 years of experience, specializing in building modern, interactive, and efficient web applications with the MERN stack and Next.js.
-        </p>
-        <div className="mt-10 flex justify-center gap-4">
-          <Button size="lg" asChild>
-            <a href="/projects">
-              View Projects <ArrowRight className="ml-2" />
-            </a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href="/experience">
-              My Experience
-            </a>
-          </Button>
+      <section className="flex flex-col-reverse md:flex-row items-center gap-12">
+        <div className="flex-1">
+          <p className="text-2xl md:text-3xl text-primary font-medium">
+            MERN Stack Developer
+          </p>
+          <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter mt-2">
+            Muhammad Afzal
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg text-foreground/80">
+            A passionate full-stack developer with 2 years of experience, specializing in building modern, interactive, and efficient web applications with the MERN stack and Next.js.
+          </p>
+          <div className="mt-10 flex gap-4">
+            <Button size="lg" asChild>
+              <a href="/projects">
+                View Projects <ArrowRight className="ml-2" />
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="/experience">
+                My Experience
+              </a>
+            </Button>
+          </div>
+        </div>
+        <div className="flex-shrink-0">
+          <Image
+            src="https://picsum.photos/400/400"
+            alt="Muhammad Afzal"
+            width={400}
+            height={400}
+            data-ai-hint="man portrait"
+            className="rounded-full object-cover border-8 border-primary/20 shadow-lg"
+          />
         </div>
       </section>
 

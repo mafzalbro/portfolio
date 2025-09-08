@@ -9,7 +9,7 @@ export default function AppHeader() {
     <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/80 px-4 backdrop-blur-sm md:justify-end">
       <SidebarTrigger className="md:hidden" />
       <div className="flex items-center gap-3">
-        <Button variant="secondary" asChild>
+        <Button variant="outline" asChild>
           <a href="/cv.pdf" download>
             <Download />
             <span className="hidden sm:inline-block">Download CV</span>
