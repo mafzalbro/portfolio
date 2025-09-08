@@ -1,6 +1,6 @@
 import { ArrowRight, Code, Server, Blend } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { technologies } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
@@ -26,7 +26,17 @@ export default function Home() {
 
   return (
     <div className="space-y-24">
-      <section className="flex flex-col-reverse md:flex-row items-center gap-12">
+      <section className="flex flex-col md:flex-row items-center gap-12">
+        <div className="flex-shrink-0">
+          <Image
+            src="https://picsum.photos/400/400"
+            alt="Muhammad Afzal"
+            width={400}
+            height={400}
+            data-ai-hint="man portrait"
+            className="rounded-lg object-cover shadow-lg"
+          />
+        </div>
         <div className="flex-1">
           <p className="text-2xl md:text-3xl text-primary font-medium">
             MERN Stack Developer
@@ -50,29 +60,19 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="flex-shrink-0">
-          <Image
-            src="https://picsum.photos/400/400"
-            alt="Muhammad Afzal"
-            width={400}
-            height={400}
-            data-ai-hint="man portrait"
-            className="rounded-full object-cover border-8 border-primary/20 shadow-lg"
-          />
-        </div>
       </section>
 
       <section>
         <h2 className="font-headline text-4xl font-bold text-center mb-12">What I Do</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="flex flex-col bg-card/80 backdrop-blur-sm border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
-              <CardHeader className="items-center text-center">
+            <Card key={index} className="flex flex-col text-center items-center border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+              <CardHeader>
                 {service.icon}
                 <CardTitle className="font-headline text-2xl mt-4">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-center text-muted-foreground flex-grow">
-                <p>{service.description}</p>
+              <CardContent className="flex-grow">
+                <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -83,7 +83,7 @@ export default function Home() {
         <h2 className="font-headline text-4xl font-bold text-center mb-12">Technologies & Skills</h2>
         <div className="flex flex-wrap justify-center gap-3">
           {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-base px-5 py-2 rounded-lg hover:bg-primary/90 hover:text-primary-foreground transition-colors cursor-default shadow-sm">{tech}</Badge>
+            <Badge key={tech} variant="outline" className="text-base px-4 py-2 rounded-md border-2 border-secondary hover:bg-secondary/80 transition-colors cursor-default shadow-sm">{tech}</Badge>
           ))}
         </div>
       </section>

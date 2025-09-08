@@ -73,7 +73,7 @@ function Socials() {
           </Button>
         ))}
       </div>
-      <Button variant="outline" asChild className="mt-2 h-9 border-sidebar-border hover:bg-primary/10 hover:border-primary">
+      <Button asChild className="mt-2 h-9">
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
           Follow
         </a>
@@ -85,7 +85,7 @@ function Socials() {
 
 export default function AppSidebar() {
   return (
-    <Sidebar variant="inset" collapsible="icon">
+    <Sidebar variant="sidebar" collapsible="icon">
       <SidebarHeader>
         <AppLogo />
       </SidebarHeader>

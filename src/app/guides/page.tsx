@@ -19,7 +19,7 @@ export default function GuidesPage() {
               <CardDescription>{guide.description}</CardDescription>
             </CardHeader>
             <CardFooter className="mt-auto">
-              <Button variant="secondary" asChild>
+              <Button asChild>
                 <a href={guide.link}>Read Guide <ArrowUpRight className="ml-2" /></a>
               </Button>
             </CardFooter>

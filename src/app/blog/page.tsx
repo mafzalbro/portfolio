@@ -19,7 +19,7 @@ export default function BlogPage() {
               <CardDescription>{post.description}</CardDescription>
             </CardHeader>
             <CardFooter className="mt-auto">
-              <Button variant="secondary" asChild>
+              <Button asChild>
                 <a href={post.link}>Read Post <ArrowUpRight className="ml-2" /></a>
               </Button>
             </CardFooter>

@@ -48,7 +48,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </CardContent>
       <CardFooter>
-        <Button asChild variant="ghost" className="w-full">
+        <Button asChild className="w-full">
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             View Project <ArrowUpRight className="ml-2" />
           </a>
