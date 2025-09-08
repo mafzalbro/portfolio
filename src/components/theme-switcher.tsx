@@ -64,7 +64,9 @@ export function ThemeSwitcher() {
   const [colorPickerValue, setColorPickerValue] = React.useState("#4f86f7");
 
   React.useEffect(() => {
-    const root = document.documentElement;
+    const root = document.querySelector(':root') as HTMLElement;
+    if (!root) return;
+
     const { h, s, l } = primaryColor;
     
     root.style.setProperty('--primary', `${h} ${s}% ${l}%`);
@@ -77,18 +79,18 @@ export function ThemeSwitcher() {
 
     const isDark = theme?.includes('dark');
     if(isDark) {
-      root.style.setProperty('--secondary', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
-      root.style.setProperty('--secondary-foreground', `hsl(${h}, 5%, 95%)`);
-      root.style.setProperty('--accent', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
-      root.style.setProperty('--accent-foreground', `hsl(${h}, 5%, 95%)`);
+      root.style.setProperty('--secondary', `hsl(${h}, 30%, 17.5%)`);
+      root.style.setProperty('--secondary-foreground', `hsl(${h}, 5%, 98%)`);
+      root.style.setProperty('--accent', `hsl(${h}, 30%, 17.5%)`);
+      root.style.setProperty('--accent-foreground', `hsl(${h}, 5%, 98%)`);
       root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.2)`);
       root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     } else {
-      root.style.setProperty('--secondary', `hsl(${h}, ${s * 1.1}%, 96%)`);
-      root.style.setProperty('--secondary-foreground', `hsl(${h}, 30%, 10%)`);
-      root.style.setProperty('--accent', `hsl(${h}, ${s * 1.1}%, 96%)`);
-      root.style.setProperty('--accent-foreground', `hsl(${h}, 30%, 10%)`);
-      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.15)`);
+      root.style.setProperty('--secondary', `hsl(${h}, 40%, 96.1%)`);
+      root.style.setProperty('--secondary-foreground', `hsl(${h}, 30%, 11.2%)`);
+      root.style.setProperty('--accent', `hsl(${h}, 40%, 96.1%)`);
+      root.style.setProperty('--accent-foreground', `hsl(${h}, 30%, 11.2%)`);
+      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.1)`);
       root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     }
 
