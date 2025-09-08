@@ -30,7 +30,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="theme-blue-dark"
           enableSystem={false}
-          themes={['theme-blue-light', 'theme-blue-dark', 'theme-amber-light', 'theme-amber-dark']}
+          themes={['theme-blue-light', 'theme-blue-dark']}
         >
           <SidebarProvider>
             <AppSidebar />
