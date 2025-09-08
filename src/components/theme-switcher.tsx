@@ -64,32 +64,32 @@ export function ThemeSwitcher() {
   const [colorPickerValue, setColorPickerValue] = React.useState("#4f86f7");
 
   React.useEffect(() => {
-    const root = document.documentElement.style;
+    const root = document.documentElement;
     const { h, s, l } = primaryColor;
-    const isDark = theme?.includes('dark');
     
-    root.setProperty('--primary', `${h} ${s}% ${l}%`);
-    root.setProperty('--primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
-    root.setProperty('--chart-1', `${h} ${s}% ${l}%`);
-    root.setProperty('--sidebar-primary', `${h} ${s}% ${l}%`);
-    root.setProperty('--sidebar-primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
-    root.setProperty('--ring', `${h} ${s}% ${l}%`);
-    root.setProperty('--sidebar-ring', `${h} ${s}% ${l}%`);
+    root.style.setProperty('--primary', `${h} ${s}% ${l}%`);
+    root.style.setProperty('--primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
+    root.style.setProperty('--chart-1', `${h} ${s}% ${l}%`);
+    root.style.setProperty('--sidebar-primary', `${h} ${s}% ${l}%`);
+    root.style.setProperty('--sidebar-primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
+    root.style.setProperty('--ring', `${h} ${s}% ${l}%`);
+    root.style.setProperty('--sidebar-ring', `${h} ${s}% ${l}%`);
 
+    const isDark = theme?.includes('dark');
     if(isDark) {
-      root.setProperty('--secondary', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
-      root.setProperty('--secondary-foreground', `hsl(${h}, 5%, 95%)`);
-      root.setProperty('--accent', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
-      root.setProperty('--accent-foreground', `hsl(${h}, 5%, 95%)`);
-      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.2)`);
-      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
+      root.style.setProperty('--secondary', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
+      root.style.setProperty('--secondary-foreground', `hsl(${h}, 5%, 95%)`);
+      root.style.setProperty('--accent', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
+      root.style.setProperty('--accent-foreground', `hsl(${h}, 5%, 95%)`);
+      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.2)`);
+      root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     } else {
-      root.setProperty('--secondary', `hsl(${h}, ${s * 1.1}%, ${l * 1.6}%)`);
-      root.setProperty('--secondary-foreground', `hsl(${h}, 30%, 10%)`);
-      root.setProperty('--accent', `hsl(${h}, ${s * 1.1}%, ${l * 1.6}%)`);
-      root.setProperty('--accent-foreground', `hsl(${h}, 30%, 10%)`);
-      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.15)`);
-      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
+      root.style.setProperty('--secondary', `hsl(${h}, ${s * 1.1}%, 96%)`);
+      root.style.setProperty('--secondary-foreground', `hsl(${h}, 30%, 10%)`);
+      root.style.setProperty('--accent', `hsl(${h}, ${s * 1.1}%, 96%)`);
+      root.style.setProperty('--accent-foreground', `hsl(${h}, 30%, 10%)`);
+      root.style.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.15)`);
+      root.style.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     }
 
     setColorPickerValue(hslToHex(h, s, l));
@@ -106,9 +106,9 @@ export function ThemeSwitcher() {
 
   const toggleTheme = () => {
     if (isDarkMode) {
-        setTheme("theme-blue-light");
+        setTheme("theme-pastel-light");
     } else {
-        setTheme("theme-blue-dark");
+        setTheme("theme-pastel-dark");
     }
   }
 
