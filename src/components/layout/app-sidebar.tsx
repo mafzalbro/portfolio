@@ -89,7 +89,7 @@ export default function AppSidebar() {
       <SidebarHeader>
         <AppLogo />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="p-2">
         <NavMenu />
       </SidebarContent>
       <SidebarFooter>

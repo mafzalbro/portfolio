@@ -60,8 +60,8 @@ function hexToHsl(hex: string): [number, number, number] {
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
-  const [primaryColor, setPrimaryColor] = React.useState({ h: 217.2, s: 91.2, l: 59.8 });
-  const [colorPickerValue, setColorPickerValue] = React.useState("#3b82f6");
+  const [primaryColor, setPrimaryColor] = React.useState({ h: 217, s: 91, l: 60 });
+  const [colorPickerValue, setColorPickerValue] = React.useState("#4f86f7");
 
   React.useEffect(() => {
     const root = document.documentElement.style;
@@ -77,20 +77,19 @@ export function ThemeSwitcher() {
     root.setProperty('--sidebar-ring', `${h} ${s}% ${l}%`);
 
     if(isDark) {
-      root.setProperty('--secondary', `hsl(${h}, 32.6%, 17.5%)`);
-      root.setProperty('--secondary-foreground', `hsl(210, 40%, 98%)`);
-      root.setProperty('--accent', `hsl(${h}, 32.6%, 17.5%)`);
-      root.setProperty('--accent-foreground', `hsl(210, 40%, 98%)`);
-      root.setProperty('--sidebar-accent', `hsl(${h} ${s}% ${l}% / 0.2)`);
-      root.setProperty('--sidebar-accent-foreground', `hsl(${h} ${s}% ${l}%)`);
-
+      root.setProperty('--secondary', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
+      root.setProperty('--secondary-foreground', `hsl(${h}, 5%, 95%)`);
+      root.setProperty('--accent', `hsl(${h}, ${s * 0.5}%, ${l * 0.3}%)`);
+      root.setProperty('--accent-foreground', `hsl(${h}, 5%, 95%)`);
+      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.2)`);
+      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     } else {
-      root.setProperty('--secondary', `hsl(${h}, 40%, 96.1%)`);
-      root.setProperty('--secondary-foreground', `hsl(${h}, 47.4%, 11.2%)`);
-      root.setProperty('--accent', `hsl(${h}, 40%, 96.1%)`);
-      root.setProperty('--accent-foreground', `hsl(${h}, 47.4%, 11.2%)`);
-      root.setProperty('--sidebar-accent', `hsl(${h} ${s}% ${l}% / 0.1)`);
-      root.setProperty('--sidebar-accent-foreground', `hsl(${h} ${s}% ${l}%)`);
+      root.setProperty('--secondary', `hsl(${h}, ${s * 1.1}%, ${l * 1.6}%)`);
+      root.setProperty('--secondary-foreground', `hsl(${h}, 30%, 10%)`);
+      root.setProperty('--accent', `hsl(${h}, ${s * 1.1}%, ${l * 1.6}%)`);
+      root.setProperty('--accent-foreground', `hsl(${h}, 30%, 10%)`);
+      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%, 0.15)`);
+      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
     }
 
     setColorPickerValue(hslToHex(h, s, l));
