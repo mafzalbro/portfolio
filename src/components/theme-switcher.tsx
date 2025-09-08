@@ -66,6 +66,8 @@ export function ThemeSwitcher() {
   React.useEffect(() => {
     const root = document.documentElement.style;
     const { h, s, l } = primaryColor;
+    const isDark = theme?.includes('dark');
+    
     root.setProperty('--primary', `${h} ${s}% ${l}%`);
     root.setProperty('--primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
     root.setProperty('--chart-1', `${h} ${s}% ${l}%`);
@@ -73,8 +75,25 @@ export function ThemeSwitcher() {
     root.setProperty('--sidebar-primary-foreground', `${h} ${s}% ${l > 50 ? 10 : 90}%`);
     root.setProperty('--ring', `${h} ${s}% ${l}%`);
 
+    if(isDark) {
+      root.setProperty('--secondary', `${h} 32.6% 17.5%`);
+      root.setProperty('--secondary-foreground', `210 40% 98%`);
+      root.setProperty('--accent', `${h} 32.6% 17.5%`);
+      root.setProperty('--accent-foreground', `210 40% 98%`);
+      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%) / 0.2`);
+      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
+
+    } else {
+      root.setProperty('--secondary', `${h} 40% 96.1%`);
+      root.setProperty('--secondary-foreground', `${h} 47.4% 11.2%`);
+      root.setProperty('--accent', `${h} 40% 96.1%`);
+      root.setProperty('--accent-foreground', `${h} 47.4% 11.2%`);
+      root.setProperty('--sidebar-accent', `hsl(${h}, ${s}%, ${l}%) / 0.1`);
+      root.setProperty('--sidebar-accent-foreground', `hsl(${h}, ${s}%, ${l}%)`);
+    }
+
     setColorPickerValue(hslToHex(h, s, l));
-  }, [primaryColor]);
+  }, [primaryColor, theme]);
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const hex = event.target.value;
