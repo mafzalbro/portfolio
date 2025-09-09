@@ -60,25 +60,31 @@ function hexToHsl(hex: string): [number, number, number] {
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
-  const [primaryHue, setPrimaryHue] = React.useState(220);
-  const [colorPickerValue, setColorPickerValue] = React.useState("#4a7ee6");
+  const [primaryHue, setPrimaryHue] = React.useState(250);
+  const [primarySaturation, setPrimarySaturation] = React.useState(80);
+  const [primaryLightness, setPrimaryLightness] = React.useState(65);
+  const [colorPickerValue, setColorPickerValue] = React.useState("#7568e9");
   
   React.useEffect(() => {
     const root = document.documentElement;
     if (root) {
       root.style.setProperty('--primary-hue', primaryHue.toString());
+      root.style.setProperty('--primary-saturation', `${primarySaturation}%`);
+      root.style.setProperty('--primary-lightness', `${primaryLightness}%`);
     }
-  }, [primaryHue]);
+  }, [primaryHue, primarySaturation, primaryLightness]);
 
   React.useEffect(() => {
-    setColorPickerValue(hslToHex(primaryHue, 85, 60));
-  }, [primaryHue]);
+    setColorPickerValue(hslToHex(primaryHue, primarySaturation, primaryLightness));
+  }, [primaryHue, primarySaturation, primaryLightness]);
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const hex = event.target.value;
     setColorPickerValue(hex);
-    const [h] = hexToHsl(hex);
+    const [h, s, l] = hexToHsl(hex);
     setPrimaryHue(h);
+    setPrimarySaturation(s);
+    setPrimaryLightness(l);
   }
   
   const isDarkMode = theme === "dark";
