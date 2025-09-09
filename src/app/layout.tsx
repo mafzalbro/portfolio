@@ -28,9 +28,8 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="theme-pastel-dark"
+          defaultTheme="dark"
           enableSystem={false}
-          themes={['theme-pastel-light', 'theme-pastel-dark']}
         >
           <SidebarProvider>
             <AppSidebar />
