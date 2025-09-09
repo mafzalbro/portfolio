@@ -13,13 +13,13 @@ body {
     --primary-lightness: 60%;
 
     /* Base colors derived from primary for light mode */
-    --background: var(--primary-hue) 15% 98%;
+    --background: calc(var(--primary-hue) + 10) 15% 98%;
     --foreground: var(--primary-hue) 10% 10%;
 
-    --card: var(--primary-hue) 15% 99%;
+    --card: calc(var(--primary-hue) + 10) 15% 99%;
     --card-foreground: var(--primary-hue) 10% 12%;
 
-    --popover: var(--primary-hue) 15% 99%;
+    --popover: calc(var(--primary-hue) + 10) 15% 99%;
     --popover-foreground: var(--primary-hue) 10% 12%;
 
     --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
