@@ -53,8 +53,8 @@ body {
     --sidebar-background: hsl(var(--primary-hue), 15%, 98%);
     --sidebar-foreground: hsl(var(--primary-hue), 10%, 10%);
     --sidebar-border: hsl(var(--primary-hue), 15%, 90%);
-    --sidebar-accent: hsl(var(--primary), 0.1);
-    --sidebar-accent-foreground: hsl(var(--primary));
+    --sidebar-accent: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 0.1);
+    --sidebar-accent-foreground: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
     --sidebar-ring: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) - 5%));
   }
  
@@ -92,8 +92,8 @@ body {
     --sidebar-background: hsl(var(--primary-hue), 10%, 10%);
     --sidebar-foreground: hsl(var(--primary-hue), 15%, 98%);
     --sidebar-border: hsl(var(--primary-hue), 10%, 20%);
-    --sidebar-accent: hsl(var(--primary), 0.15);
-    --sidebar-accent-foreground: hsl(var(--primary));
+    --sidebar-accent: hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 0.15);
+    --sidebar-accent-foreground: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
     --sidebar-ring: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) + 10%));
   }
 }
