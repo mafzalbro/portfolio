@@ -12,73 +12,92 @@ body {
     --primary-saturation: 85%;
     --primary-lightness: 60%;
 
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --chart-1: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 70% 50%;
-    --radius: 0.8rem;
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: hsl(var(--sidebar-primary) / 0.1);
-    --sidebar-accent-foreground: hsl(var(--sidebar-primary));
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-  }
+    /* Base colors derived from primary for light mode */
+    --background: var(--primary-hue) 15% 98%;
+    --foreground: var(--primary-hue) 10% 10%;
 
-  .theme-pastel-dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --card: var(--primary-hue) 15% 99%;
+    --card-foreground: var(--primary-hue) 10% 12%;
+
+    --popover: var(--primary-hue) 15% 99%;
+    --popover-foreground: var(--primary-hue) 10% 12%;
+
     --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
+    --primary-foreground: var(--primary-hue) 20% 10%;
+
+    --secondary: calc(var(--primary-hue) + 10) 20% 94%;
+    --secondary-foreground: var(--primary-hue) 10% 20%;
+
+    --muted: calc(var(--primary-hue) + 5) 15% 96%;
+    --muted-foreground: var(--primary-hue) 10% 45%;
+
+    --accent: calc(var(--primary-hue) + 10) 30% 95%;
+    --accent-foreground: var(--primary-hue) 10% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: var(--primary-hue) 15% 90%;
+    --input: var(--primary-hue) 15% 88%;
+    --ring: var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) - 5%);
+    --radius: 0.8rem;
+
+    /* Charts */
     --chart-1: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --sidebar-background: 222.2 84% 4.9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
-    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: hsl(var(--sidebar-primary) / 0.2);
-    --sidebar-accent-foreground: hsl(var(--sidebar-primary));
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
+    --chart-2: calc(var(--primary-hue) + 40) 70% 60%;
+    --chart-3: calc(var(--primary-hue) - 40) 70% 60%;
+    --chart-4: calc(var(--primary-hue) + 20) 60% 65%;
+    --chart-5: calc(var(--primary-hue) - 20) 60% 65%;
+
+    /* Sidebar specific vars */
+    --sidebar-background: var(--primary-hue) 15% 98%;
+    --sidebar-foreground: var(--primary-hue) 10% 10%;
+    --sidebar-border: var(--primary-hue) 15% 90%;
+    --sidebar-accent: hsl(var(--primary)) / 0.1;
+    --sidebar-accent-foreground: hsl(var(--primary));
+    --sidebar-ring: var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) - 5%);
+  }
+ 
+  .theme-pastel-dark {
+    /* Base colors derived from primary for dark mode */
+    --background: var(--primary-hue) 10% 10%;
+    --foreground: var(--primary-hue) 15% 98%;
+
+    --card: var(--primary-hue) 10% 12%;
+    --card-foreground: var(--primary-hue) 15% 96%;
+
+    --popover: var(--primary-hue) 10% 8%;
+    --popover-foreground: var(--primary-hue) 15% 98%;
+
+    --primary: var(--primary-hue) var(--primary-saturation) var(--primary-lightness);
+    --primary-foreground: var(--primary-hue) 20% 10%;
+
+    --secondary: var(--primary-hue) 10% 18%;
+    --secondary-foreground: var(--primary-hue) 15% 98%;
+
+    --muted: var(--primary-hue) 10% 23%;
+    --muted-foreground: var(--primary-hue) 10% 65%;
+
+    --accent: var(--primary-hue) 10% 23%;
+    --accent-foreground: var(--primary-hue) 15% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: var(--primary-hue) 10% 20%;
+    --input: var(--primary-hue) 10% 22%;
+    --ring: var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) + 10%);
+
+    /* Sidebar specific vars */
+    --sidebar-background: var(--primary-hue) 10% 10%;
+    --sidebar-foreground: var(--primary-hue) 15% 98%;
+    --sidebar-border: var(--primary-hue) 10% 20%;
+    --sidebar-accent: hsl(var(--primary)) / 0.15;
+    --sidebar-accent-foreground: hsl(var(--primary));
+    --sidebar-ring: var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) + 10%);
   }
 }
-
+ 
 @layer base {
   * {
     @apply border-border;
