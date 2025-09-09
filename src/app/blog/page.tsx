@@ -2,10 +2,9 @@ import { PageHeader } from "@/components/page-header";
 import { blogs } from "@/lib/data";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import { format } from "date-fns";
-import { Calendar } from "lucide-react";
 
 export default function BlogPage() {
   return (
@@ -16,7 +15,7 @@ export default function BlogPage() {
       />
        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs.map((post) => (
-          <Card key={post.slug} className="flex flex-col bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+          <Card key={post.slug} className="flex flex-col bg-card/60 glassmorphism border-border/60 transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:-translate-y-2">
             <CardHeader>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                     <Calendar className="size-4" />

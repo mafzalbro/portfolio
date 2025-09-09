@@ -6,9 +6,9 @@ import { Download, Mail } from "lucide-react";
 
 export default function AppHeader() {
   return (
-    <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-background/80 px-4 backdrop-blur-sm md:justify-end">
+    <header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-border/50 bg-background/50 px-4 glassmorphism md:justify-end md:px-8">
       <SidebarTrigger className="md:hidden" />
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <Button variant="outline" asChild>
           <a href="/cv.pdf" download>
             <Download />

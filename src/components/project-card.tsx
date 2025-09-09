@@ -24,17 +24,16 @@ type Project = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="group h-full flex flex-col overflow-hidden bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
-      <Link href={`/projects/${project.slug}`} className="relative overflow-hidden">
+    <Card className="group h-full flex flex-col overflow-hidden bg-card/60 glassmorphism border-border/60 transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:-translate-y-2">
+      <Link href={`/projects/${project.slug}`} className="relative block overflow-hidden aspect-video">
         <Image
           src={project.imageUrl}
           alt={project.title}
-          width={600}
-          height={400}
+          fill
           data-ai-hint={project.imageHint}
-          className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/30 transition-all"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
       </Link>
       <CardHeader>
         <CardTitle className="font-headline text-xl">
@@ -44,7 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
+          {project.technologies.slice(0, 4).map((tech) => (
             <Badge key={tech} variant="secondary">
               {tech}
             </Badge>

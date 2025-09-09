@@ -14,7 +14,7 @@ export default function GuidesPage() {
       />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {guides.map((guide) => (
-          <Card key={guide.slug} className="flex flex-col bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+          <Card key={guide.slug} className="flex flex-col bg-card/60 glassmorphism border-border/60 transition-all duration-300 hover:shadow-2xl hover:border-primary/30 hover:-translate-y-2">
             <CardHeader>
               <CardTitle className="font-headline text-xl">
                 <Link href={`/guides/${guide.slug}`} className="hover:text-primary transition-colors">

@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Afzal.MERN - MERN Stack Developer Portfolio",
@@ -35,7 +36,7 @@ export default function RootLayout({
             <AppSidebar />
             <SidebarInset>
               <AppHeader />
-              <main className="p-4 md:p-6 lg:p-8">
+              <main className="p-4 md:p-6 lg:p-12">
                 {children}
               </main>
             </SidebarInset>
@@ -43,6 +44,7 @@ export default function RootLayout({
           <ThemeSwitcher />
           <Toaster />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

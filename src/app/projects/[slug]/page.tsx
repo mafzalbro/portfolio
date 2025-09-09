@@ -15,31 +15,30 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
   return (
     <div>
-      <PageHeader title={project.title} description={project.description} />
+      <PageHeader title={project.title} />
 
-      <div className="max-w-4xl mx-auto">
-        <div className="relative overflow-hidden rounded-lg mb-8 shadow-lg">
+      <div className="max-w-5xl mx-auto">
+        <div className="relative overflow-hidden rounded-lg mb-12 shadow-2xl border border-border/50 aspect-video">
           <Image
             src={project.imageUrl}
             alt={project.title}
-            width={1200}
-            height={675}
+            fill
             data-ai-hint={project.imageHint}
-            className="w-full object-cover"
+            className="object-cover"
           />
         </div>
 
-        <div className="bg-card p-6 sm:p-8 rounded-lg border">
-          <h3 className="font-headline text-2xl font-bold mb-4">Project Details</h3>
-          <p className="text-muted-foreground mb-6">
+        <div className="bg-card/60 glassmorphism p-8 sm:p-10 rounded-lg border border-border/60">
+          <h3 className="font-headline text-3xl font-bold mb-4">Project Details</h3>
+          <p className="text-lg text-muted-foreground mb-8">
             {project.longDescription}
           </p>
 
-          <div className="mb-6">
-            <h4 className="font-semibold mb-3">Technologies Used</h4>
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-8">
+            <h4 className="font-semibold text-lg mb-4">Technologies Used</h4>
+            <div className="flex flex-wrap gap-3">
               {project.technologies.map((tech) => (
-                <Badge key={tech} variant="secondary">
+                <Badge key={tech} variant="secondary" className="text-base px-4 py-2">
                   {tech}
                 </Badge>
               ))}

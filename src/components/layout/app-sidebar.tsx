@@ -16,8 +16,8 @@ import { Button } from "../ui/button";
 
 function AppLogo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 px-2">
-      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+    <Link href="/" className="flex items-center gap-3 px-2">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary via-purple-500 to-pink-500 text-primary-foreground">
         <span className="font-headline text-2xl font-bold">A</span>
       </div>
       <span className="font-headline text-xl font-bold text-foreground">
@@ -36,7 +36,7 @@ function NavMenu() {
         <SidebarMenuItem key={link.name}>
           <SidebarMenuButton
             asChild
-            isActive={pathname === link.href}
+            isActive={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))}
             tooltip={link.name}
             className="text-base"
             size="lg"
@@ -64,7 +64,7 @@ function Socials() {
             key={link.name}
             variant="ghost"
             size="icon"
-            className="h-9 w-9"
+            className="h-10 w-10 text-muted-foreground hover:text-foreground"
             asChild
           >
             <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
