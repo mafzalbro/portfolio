@@ -13,6 +13,7 @@ import { ArrowUpRight } from "lucide-react";
 
 type Project = {
   title: string;
+  slug: string;
   description: string;
   technologies: string[];
   imageUrl: string;
@@ -22,7 +23,7 @@ type Project = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="group h-full flex flex-col overflow-hidden bg-card border-border/60 transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+    <Card className="group h-full flex flex-col overflow-hidden bg-secondary/30 border-border transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
       <div className="relative overflow-hidden">
         <Image
           src={project.imageUrl}
@@ -49,7 +50,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardContent>
       <CardFooter>
         <Button asChild className="w-full">
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
+          <a href={`/projects/${project.slug}`} rel="noopener noreferrer">
             View Project <ArrowUpRight className="ml-2" />
           </a>
         </Button>

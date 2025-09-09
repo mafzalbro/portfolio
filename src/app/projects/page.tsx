@@ -18,8 +18,6 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTech, setSelectedTech] = useState("all");
 
-  const projectTypes = ["all", ...Array.from(new Set(allProjects.map((p) => p.type)))];
-
   const filteredProjects = allProjects
     .filter((project) =>
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -30,7 +28,7 @@ export default function ProjectsPage() {
     );
 
   return (
-    <div>
+    <div className="container mx-auto">
       <PageHeader
         title="My Projects"
         description="A collection of my work, from full-stack applications to freelance projects. Use the filters to explore projects by technology or type."

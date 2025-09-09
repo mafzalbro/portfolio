@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
-import AppSidebar from "@/components/layout/app-sidebar";
-import AppHeader from "@/components/layout/app-header";
+import { ThemeProvider } from "next-themes";
+import TopNav from "@/components/layout/top-nav";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Afzal.MERN - MERN Stack Developer Portfolio",
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -24,16 +24,19 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset>
-            <AppHeader />
-            <main className="p-4 md:p-6 lg:p-8">
-              {children}
-            </main>
-          </SidebarInset>
-        </SidebarProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TopNav />
+          <main className="p-4 md:p-6 lg:p-8">
+            {children}
+          </main>
+          <Toaster />
+        </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

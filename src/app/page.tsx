@@ -25,8 +25,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-24">
-      <section className="grid md:grid-cols-2 gap-12 items-center">
+    <div className="container mx-auto space-y-24">
+      <section className="grid md:grid-cols-2 gap-12 items-center pt-16">
         <div className="space-y-6">
           <p className="text-2xl md:text-3xl text-primary font-medium">
             MERN Stack Developer
@@ -66,7 +66,7 @@ export default function Home() {
         <h2 className="font-headline text-4xl font-bold text-center mb-12">What I Do</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="flex flex-col text-center items-center bg-secondary/30 border-secondary transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
+            <Card key={index} className="flex flex-col text-center items-center bg-secondary/30 border-border transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1">
               <CardHeader>
                 {service.icon}
                 <CardTitle className="font-headline text-2xl mt-4">{service.title}</CardTitle>
@@ -83,7 +83,7 @@ export default function Home() {
         <h2 className="font-headline text-4xl font-bold text-center mb-12">Technologies & Skills</h2>
         <div className="flex flex-wrap justify-center gap-3">
           {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-base px-4 py-2 rounded-md border-2 border-secondary hover:bg-secondary/80 transition-colors cursor-default shadow-sm">{tech}</Badge>
+            <Badge key={tech} variant="secondary" className="text-base px-4 py-2 rounded-lg border-2 border-transparent hover:bg-secondary/80 transition-colors cursor-default shadow-sm">{tech}</Badge>
           ))}
         </div>
       </section>
