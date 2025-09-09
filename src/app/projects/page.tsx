@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { projects as allProjects, technologies } from "@/lib/data";
 import { ProjectCard } from "@/components/project-card";
@@ -17,8 +18,6 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTech, setSelectedTech] = useState("all");
-
-  const projectTypes = ["all", ...Array.from(new Set(allProjects.map((p) => p.type)))];
 
   const filteredProjects = allProjects
     .filter((project) =>
